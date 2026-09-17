@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="簡潔、好玩的線上擲骰子工具">
+  <title>骰來骰去 | 擲骰子</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="骰來骰去首頁">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span>骰來骰去</span>
+      </a>
+      <span class="status-pill"><span class="status-dot"></span>隨機模式</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">ROLL THE DICE</p>
+        <h1 id="page-title">今天，<br><em>交給運氣。</em></h1>
+        <p class="intro">設定你的骰子，按下按鈕，讓下一個數字替你做決定。</p>
+      </div>
+      <div class="hero-note" aria-label="網站資訊">
+        <span class="note-number">01</span>
+        <span class="note-line"></span>
+        <span class="note-text">READY<br>WHEN YOU ARE</span>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="擲骰子控制區">
+      <div class="result-panel">
+        <div class="panel-label"><span class="label-dot"></span>本次結果</div>
+        <div class="dice-stage" id="diceStage" aria-live="polite" aria-atomic="true">
+          <div class="dice" id="diceVisual" aria-hidden="true">
+            <span class="dice-value">?</span>
+            <span class="dice-shine"></span>
+          </div>
+          <p class="result-caption" id="resultCaption">按下擲骰開始</p>
+        </div>
+        <div class="result-meta">
+          <span>目前骰面</span>
+          <strong id="currentType">D6</strong>
+        </div>
+      </div>
+
+      <aside class="control-panel">
+        <div class="control-block">
+          <div class="control-heading">
+            <label for="diceCount">骰子數量</label>
+            <output id="countOutput" for="diceCount">1 顆</output>
+          </div>
+          <input id="diceCount" type="range" min="1" max="3" value="1">
+          <div class="range-labels"><span>1</span><span>2</span><span>3</span></div>
+        </div>
+
+        <div class="control-block">
+          <div class="control-heading">
+            <span>骰子面數</span>
+            <span class="control-hint">選一個</span>
+          </div>
+          <div class="side-options" role="group" aria-label="選擇骰子面數">
+            <button class="side-button" type="button" data-sides="4">D4</button>
+            <button class="side-button active" type="button" data-sides="6">D6</button>
+            <button class="side-button" type="button" data-sides="8">D8</button>
+            <button class="side-button" type="button" data-sides="10">D10</button>
+            <button class="side-button" type="button" data-sides="12">D12</button>
+            <button class="side-button" type="button" data-sides="20">D20</button>
+          </div>
+        </div>
+
+        <button class="roll-button" id="rollButton" type="button">
+          <span>擲骰子</span>
+          <span class="roll-arrow" aria-hidden="true">↗</span>
+        </button>
+        <p class="shortcut-hint">按下 <kbd>Space</kbd> 也可以擲骰</p>
+      </aside>
+    </section>
+
+    <section class="history-section" aria-labelledby="history-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR TRAIL</p>
+          <h2 id="history-title">擲骰紀錄</h2>
+        </div>
+        <button class="clear-button" id="clearButton" type="button">清除全部 <span aria-hidden="true">×</span></button>
+      </div>
+      <div class="history-list" id="historyList">
+        <div class="empty-state" id="emptyState">還沒有紀錄，先來試試手氣吧。</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>BUILT FOR SMALL DECISIONS</span>
+      <span>© 2026</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
